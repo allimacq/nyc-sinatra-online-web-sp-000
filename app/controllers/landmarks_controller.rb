@@ -16,10 +16,14 @@ class LandmarksController < ApplicationController
   get '/landmarks/:id/edit' do
    @landmark = Landmark.find_by_id(params[:id])
    erb :'/landmarks/edit'
- end
+  end
   
    post '/landmarks' do
     @landmark = Landmark.create(params[:landmark])
+  end
+  
+  patch '/landmarks/:id' do
+    @landmark = Landmark.find_by_id(params[:id])
   end
   
 end
